@@ -17,7 +17,12 @@
     },
     "description": {
       "type": "text",
-      "maxLength": 80
+    },
+    "meta_title": {
+      "type": "string"
+    },
+    "meta_description": {
+      "type": "text",
     },
     "slug": {
       "type": "uid",
