@@ -512,6 +512,8 @@ export interface PluginContentReleasesRelease extends Schema.CollectionType {
   attributes: {
     name: Attribute.String & Attribute.Required;
     releasedAt: Attribute.DateTime;
+    scheduledAt: Attribute.DateTime;
+    timezone: Attribute.String;
     actions: Attribute.Relation<
       'plugin::content-releases.release',
       'oneToMany',
@@ -827,10 +829,10 @@ export interface ApiArticleArticle extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    description: Attribute.Text &
-      Attribute.SetMinMaxLength<{
-        maxLength: 80;
-      }>;
+    description: Attribute.Text;
+    meta_title: Attribute.String;
+    meta_description: Attribute.Text;
+    meta_keywords: Attribute.String;
     slug: Attribute.UID<'api::article.article', 'title'>;
     cover: Attribute.Media;
     author: Attribute.Relation<
